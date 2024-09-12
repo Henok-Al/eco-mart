@@ -5,13 +5,14 @@ import { connectDB } from "./lib/db.js";
 
 dotenv.config();
 
-const PORT = process.env.PORT || 3000;
 const app = express();
+const PORT = process.env.PORT || 3000;
+
+app.use(express.json()); //allows you to parse the body of the request
 
 app.use("/api/auth", authRoutes);
 
-app.listen(5000, () => {
-  console.log("server running on http://localhost:" + PORT);
-
+app.listen(PORT, () => {
+  console.log("Server is running on http://localhost:" + PORT);
   connectDB();
 });
