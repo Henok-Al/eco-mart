@@ -1,3 +1,4 @@
+import { redis } from "../lib/redis.js";
 import Product from "../models/product.model.js";
 
 export const getAllProducts = async (req, res) => {
@@ -32,6 +33,37 @@ export const getFeaturedProducts = async (req, res) => {
     res.json(featuredProducts);
   } catch (error) {
     console.log("Error in getFeaturedProducts controller", error.message);
+    res.status(500).json({ message: "Server error", error: error.message });
+  }
+};
+
+export const createProduct = async (req, res) => {
+  try {
+    //get these data from the user
+    const { name, description, price, image, category } = req.body;
+
+    let cloudinaryResponse = null;
+
+    //if user provide image then we upload it to the cloudinary
+    if (image) {
+      cloudinaryResponse = await cloudinary.uploader.upload(image, {
+        folder: "products",
+      });
+    }
+
+    const product = await Product.create({
+      name,
+      description,
+      price,
+      image: cloudinaryResponse?.secure_url
+        ? cloudinaryResponse.secure_url
+        : "",
+      category,
+    });
+
+    res.status(201).json(product);
+  } catch (error) {
+    console.log("Error in createProduct controller", error.message);
     res.status(500).json({ message: "Server error", error: error.message });
   }
 };
