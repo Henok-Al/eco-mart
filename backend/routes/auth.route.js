@@ -1,4 +1,5 @@
 import express from "express";
+import { protectRoute } from "../middleware/auth.middleware.js";
 import {
   Login,
   Logout,
@@ -13,6 +14,6 @@ router.post("/signup", Signup); //localhost: 5000/api/auth/signup
 router.post("/login", Login);
 router.post("/logout", Logout);
 router.post("/refresh-token", refreshToken);
-router.post("/profile", getProfile);
+router.post("/profile", protectRoute, getProfile);
 
 export default router;
