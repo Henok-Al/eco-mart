@@ -150,6 +150,7 @@ export const refreshToken = async (req, res) => {
   }
 };
 
+//profile
 export const getProfile = async (req, res) => {
   try {
     res.json(req.user);
