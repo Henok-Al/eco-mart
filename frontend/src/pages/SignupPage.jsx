@@ -2,6 +2,7 @@ import { useState } from "react";
 import { Link } from "react-router-dom";
 import { UserPlus, Mail, Lock, User, ArrowRight, Loader } from "lucide-react";
 import { motion } from "framer-motion";
+import { useUserStore } from "../store/useUserStore";
 
 const SignUpPage = () => {
   const [formData, setFormData] = useState({
@@ -11,10 +12,11 @@ const SignUpPage = () => {
     confirmPassword: "",
   });
 
+  const { signup, loading } = useUserStore();
+
   const handleSubmit = (e) => {
     e.preventDefault();
-    // Handle signup logic here (e.g., API call)
-    console.log(formData);
+    signup(formData);
   };
 
   return (
@@ -152,10 +154,23 @@ const SignUpPage = () => {
               className="w-full flex justify-center py-2 px-4 border border-transparent 
 							rounded-md shadow-sm text-sm font-medium text-white bg-emerald-600
 							 hover:bg-emerald-700 focus:outline-none focus:ring-2 focus:ring-offset-2
-							  focus:ring-emerald-500 transition duration-150 ease-in-out"
+							  focus:ring-emerald-500 transition duration-150 ease-in-out disabled:opacity-50"
+              disabled={loading}
             >
-              <UserPlus className="mr-2 h-5 w-5" aria-hidden="true" />
-              Sign up
+              {loading ? (
+                <>
+                  <Loader
+                    className="mr-2 h-5 w-5 animate-spin"
+                    aria-hidden="true"
+                  />
+                  Loading...
+                </>
+              ) : (
+                <>
+                  <UserPlus className="mr-2 h-5 w-5" aria-hidden="true" />
+                  Sign up
+                </>
+              )}
             </button>
           </form>
 
@@ -165,7 +180,7 @@ const SignUpPage = () => {
               to="/login"
               className="font-medium text-emerald-400 hover:text-emerald-300"
             >
-              Login here <ArrowRight className="inline" />
+              Login here <ArrowRight className="inline h-4 w-4" />
             </Link>
           </p>
         </div>
@@ -173,5 +188,4 @@ const SignUpPage = () => {
     </div>
   );
 };
-
 export default SignUpPage;
