@@ -1,6 +1,6 @@
-import jwt from "jsonwebtoken";
-import User from "../models/user.model.js";
 import { redis } from "../lib/redis.js";
+import User from "../models/user.model.js";
+import jwt from "jsonwebtoken";
 
 const generateTokens = (userId) => {
   const accessToken = jwt.sign({ userId }, process.env.ACCESS_TOKEN_SECRET, {
@@ -39,32 +39,29 @@ const setCookies = (res, accessToken, refreshToken) => {
 };
 
 export const Signup = async (req, res) => {
-  const { email, password, name } = req.body; //for using this we should add app.use(express.json())
+  const { email, password, name } = req.body;
   try {
     const userExists = await User.findOne({ email });
 
     if (userExists) {
       return res.status(400).json({ message: "User already exists" });
     }
-
     const user = await User.create({ name, email, password });
 
-    //authenticate
-    const { accessToken, refreshToken } = generateToken(user._id);
+    // authenticate
+    const { accessToken, refreshToken } = generateTokens(user._id);
     await storeRefreshToken(user._id, refreshToken);
 
     setCookies(res, accessToken, refreshToken);
 
     res.status(201).json({
-      user: {
-        _id: user._id,
-        name: user.name,
-        email: user.email,
-        role: user.role,
-      },
-      message: "User created successfully",
+      _id: user._id,
+      name: user.name,
+      email: user.email,
+      role: user.role,
     });
   } catch (error) {
+    console.log("Error in signup controller", error.message);
     res.status(500).json({ message: error.message });
   }
 };
@@ -150,7 +147,6 @@ export const refreshToken = async (req, res) => {
   }
 };
 
-//profile
 export const getProfile = async (req, res) => {
   try {
     res.json(req.user);
