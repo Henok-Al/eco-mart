@@ -5,7 +5,10 @@ import { loadStripe } from "@stripe/stripe-js";
 import axios from "../lib/axios";
 import { useCartStore } from "../store/useCartStore";
 
-const stripePromise = loadStripe("api_key");
+const stripePromise = loadStripe(
+  "pk_test_51PzjKPFgya1HCYSN1XblXIQ1GRWoIeh2po27dyCns1WiVDl1wd0O6oYuQAs0kXDMt7cmcDtxgUYCFf9DV5YJTYzC00XGK0sXhz"
+);
+// const stripePromise = loadStripe(import.meta.env.VITE_STRIPE_PUBLISHABLE_KEY);
 
 const OrderSummary = () => {
   const { total, subtotal, coupon, isCouponApplied, cart } = useCartStore();

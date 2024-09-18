@@ -38,7 +38,7 @@ const setCookies = (res, accessToken, refreshToken) => {
   });
 };
 
-export const Signup = async (req, res) => {
+export const signup = async (req, res) => {
   const { email, password, name } = req.body;
   try {
     const userExists = await User.findOne({ email });
@@ -66,7 +66,7 @@ export const Signup = async (req, res) => {
   }
 };
 
-export const Login = async (req, res) => {
+export const login = async (req, res) => {
   try {
     const { email, password } = req.body;
     const user = await User.findOne({ email });
@@ -91,7 +91,7 @@ export const Login = async (req, res) => {
   }
 };
 
-export const Logout = async (req, res) => {
+export const logout = async (req, res) => {
   try {
     const refreshToken = req.cookies.refreshToken;
     if (refreshToken) {
