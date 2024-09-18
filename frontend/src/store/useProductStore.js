@@ -61,7 +61,7 @@ export const useProductStore = create((set) => ({
       const response = await axios.patch(`/products/${productId}`);
       // this will update the isFeatured prop of the product
       set((prevProducts) => ({
-        products: prevProducts.products.map((product) =>
+        products: prevProducts.map((product) =>
           product._id === productId
             ? { ...product, isFeatured: response.data.isFeatured }
             : product
