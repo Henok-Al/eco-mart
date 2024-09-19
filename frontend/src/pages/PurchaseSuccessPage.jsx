@@ -40,7 +40,7 @@ const PurchaseSuccessPage = () => {
   if (error) return `Error: ${error}`;
 
   return (
-    <div className="h-screen flex items-center justify-center px-4">
+    <div className="h-screen flex items-center justify-center px-4 bg-gray-100">
       <Confetti
         width={window.innerWidth}
         height={window.innerHeight}
@@ -50,7 +50,7 @@ const PurchaseSuccessPage = () => {
         recycle={false}
       />
 
-      <div className="max-w-md w-full bg-gray-800 rounded-lg shadow-xl overflow-hidden relative z-10">
+      <div className="max-w-md w-full bg-white rounded-lg shadow-xl overflow-hidden relative z-10">
         <div className="p-6 sm:p-8">
           <div className="flex justify-center">
             <CheckCircle className="text-emerald-400 w-16 h-16 mb-4" />
@@ -59,21 +59,21 @@ const PurchaseSuccessPage = () => {
             Purchase Successful!
           </h1>
 
-          <p className="text-gray-300 text-center mb-2">
+          <p className="text-gray-600 text-center mb-2">
             Thank you for your order. {"We're"} processing it now.
           </p>
           <p className="text-emerald-400 text-center text-sm mb-6">
             Check your email for order details and updates.
           </p>
-          <div className="bg-gray-700 rounded-lg p-4 mb-6">
+          <div className="bg-gray-200 rounded-lg p-4 mb-6">
             <div className="flex items-center justify-between mb-2">
-              <span className="text-sm text-gray-400">Order number</span>
+              <span className="text-sm text-gray-600">Order number</span>
               <span className="text-sm font-semibold text-emerald-400">
                 #12345
               </span>
             </div>
             <div className="flex items-center justify-between">
-              <span className="text-sm text-gray-400">Estimated delivery</span>
+              <span className="text-sm text-gray-600">Estimated delivery</span>
               <span className="text-sm font-semibold text-emerald-400">
                 3-5 business days
               </span>
@@ -90,7 +90,7 @@ const PurchaseSuccessPage = () => {
             </button>
             <Link
               to={"/"}
-              className="w-full bg-gray-700 hover:bg-gray-600 text-emerald-400 font-bold py-2 px-4 
+              className="w-full bg-gray-800 hover:bg-gray-700 text-white font-bold py-2 px-4 
             rounded-lg transition duration-300 flex items-center justify-center"
             >
               Continue Shopping

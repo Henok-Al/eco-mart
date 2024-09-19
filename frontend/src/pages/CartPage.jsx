@@ -11,7 +11,7 @@ const CartPage = () => {
   const { cart } = useCartStore();
 
   return (
-    <div className="py-8 md:py-16">
+    <div className="py-8 md:py-16 bg-gray-100 min-h-screen">
       <div className="mx-auto max-w-screen-xl px-4 2xl:px-0">
         <div className="mt-6 sm:mt-8 md:gap-6 lg:flex lg:items-start xl:gap-8">
           <motion.div
@@ -58,12 +58,12 @@ const EmptyCartUI = () => (
     transition={{ duration: 0.5 }}
   >
     <ShoppingCart className="h-24 w-24 text-gray-300" />
-    <h3 className="text-2xl font-semibold ">Your cart is empty</h3>
-    <p className="text-gray-400">
+    <h3 className="text-2xl font-semibold text-gray-800">Your cart is empty</h3>
+    <p className="text-gray-600">
       Looks like you {"haven't"} added anything to your cart yet.
     </p>
     <Link
-      className="mt-4 rounded-md bg-emerald-500 px-6 py-2 text-white transition-colors hover:bg-emerald-600"
+      className="mt-4 rounded-md bg-gray-800 px-6 py-2 text-white transition-colors hover:bg-gray-700"
       to="/"
     >
       Start Shopping
