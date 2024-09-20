@@ -50,25 +50,25 @@ const AnalyticsTab = () => {
           title="Total Users"
           value={analyticsData.users.toLocaleString()}
           icon={Users}
-          color="from-gray-500 to-gray-700"
+          color="from-green-500 to-green-700"
         />
         <AnalyticsCard
           title="Total Products"
           value={analyticsData.products.toLocaleString()}
           icon={Package}
-          color="from-gray-500 to-gray-700"
+          color="from-green-500 to-green-700"
         />
         <AnalyticsCard
           title="Total Sales"
           value={analyticsData.totalSales.toLocaleString()}
           icon={ShoppingCart}
-          color="from-gray-500 to-gray-700"
+          color="from-green-500 to-green-700"
         />
         <AnalyticsCard
           title="Total Revenue"
           value={`$${analyticsData.totalRevenue.toLocaleString()}`}
           icon={DollarSign}
-          color="from-gray-500 to-gray-700"
+          color="from-green-500 to-green-700"
         />
       </div>
       <motion.div
@@ -118,12 +118,12 @@ const AnalyticsCard = ({ title, value, icon: Icon, color }) => (
   >
     <div className="flex justify-between items-center">
       <div className="z-10">
-        <p className="text-gray-600 text-sm mb-1 font-semibold">{title}</p>
-        <h3 className="text-gray-800 text-3xl font-bold">{value}</h3>
+        <p className="text-green-600 text-sm mb-1 font-semibold">{title}</p>
+        <h3 className="text-green-800 text-3xl font-bold">{value}</h3>
       </div>
     </div>
-    <div className="absolute inset-0 bg-gradient-to-br from-gray-200 to-gray-300 opacity-30" />
-    <div className="absolute -bottom-4 -right-4 text-gray-400 opacity-50">
+    <div className="absolute inset-0 bg-gradient-to-br from-green-200 to-green-300 opacity-30" />
+    <div className="absolute -bottom-4 -right-4 text-green-400 opacity-50">
       <Icon className="h-32 w-32" />
     </div>
   </motion.div>

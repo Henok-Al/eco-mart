@@ -16,7 +16,7 @@ const CartItem = ({ item }) => {
           <div className="flex items-center gap-2">
             <button
               className="inline-flex h-5 w-5 shrink-0 items-center justify-center rounded-md border
-							 border-gray-300 bg-gray-100 hover:bg-gray-200 focus:outline-none focus:ring-2
+							 border-green-300 bg-green-100 hover:bg-green-200 focus:outline-none focus:ring-2
 							  focus:ring-gray-500"
               onClick={() => updateQuantity(item._id, item.quantity - 1)}
             >
@@ -25,7 +25,7 @@ const CartItem = ({ item }) => {
             <p className="text-gray-800">{item.quantity}</p>
             <button
               className="inline-flex h-5 w-5 shrink-0 items-center justify-center rounded-md border
-							 border-gray-300 bg-gray-100 hover:bg-gray-200 focus:outline-none 
+							 border-green-300 bg-green-100 hover:bg-green-200 focus:outline-none 
 						focus:ring-2 focus:ring-gray-500"
               onClick={() => updateQuantity(item._id, item.quantity + 1)}
             >

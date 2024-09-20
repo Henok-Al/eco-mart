@@ -13,6 +13,7 @@ import CartPage from "./pages/CartPage";
 import PurchaseSuccessPage from "./pages/PurchaseSuccessPage";
 import PurchaseCancelPage from "./pages/PurchaseCancelPage";
 import SignUpPage from "./pages/SignUpPage";
+import Footer from "./components/Footer";
 
 function App() {
   const { user, checkAuth, checkingAuth } = useUserStore();

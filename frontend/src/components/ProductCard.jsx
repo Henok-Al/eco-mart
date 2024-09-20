@@ -18,7 +18,7 @@ const ProductCard = ({ product }) => {
   };
 
   return (
-    <div className="flex w-full relative flex-col overflow-hidden rounded-lg border border-gray-200 shadow-lg bg-white">
+    <div className="flex w-full relative flex-col overflow-hidden rounded-lg border border-green-200 shadow-lg bg-white">
       <div className="relative mx-3 mt-3 flex h-60 overflow-hidden rounded-xl">
         <img
           className="object-cover w-full"
@@ -29,19 +29,19 @@ const ProductCard = ({ product }) => {
       </div>
 
       <div className="mt-4 px-5 pb-5">
-        <h5 className="text-xl font-semibold tracking-tight text-gray-800">
+        <h5 className="text-xl font-semibold tracking-tight text-green-800">
           {product.name}
         </h5>
         <div className="mt-2 mb-5 flex items-center justify-between">
           <p>
-            <span className="text-3xl font-bold text-gray-800">
+            <span className="text-3xl font-bold text-green-800">
               ${product.price}
             </span>
           </p>
         </div>
         <button
-          className="flex items-center justify-center rounded-lg bg-gray-800 px-5 py-2.5 text-center text-sm font-medium
-					 text-white hover:bg-gray-700 focus:outline-none focus:ring-4 focus:ring-gray-300"
+          className="flex items-center justify-center rounded-lg bg-green-600 px-5 py-2.5 text-center text-sm font-medium
+					 text-white hover:bg-green-700 focus:outline-none focus:ring-4 focus:ring-green-300"
           onClick={handleAddToCart}
         >
           <ShoppingCart size={22} className="mr-2" />
