@@ -29,8 +29,8 @@ const Navbar = () => {
             to="/"
             className="text-2xl font-bold text-green-800 flex items-center space-x-2"
           >
-            <SiShopware className="text-green-600 text-3xl" />
-            <span className="text-green-600">ECO-MART</span>
+            <SiShopware className="text-green-500 text-3xl" />
+            <span className="text-green-500">ECO-MART</span>
           </Link>
 
           <button
@@ -70,7 +70,7 @@ const Navbar = () => {
             )}
             {isAdmin && (
               <Link
-                className="bg-green-700 hover:bg-green-600 text-white px-3 py-1 rounded-md font-medium transition duration-300 ease-in-out flex items-center"
+                className="bg-green-500 hover:bg-green-600 text-white px-3 py-1 rounded-md font-medium transition duration-300 ease-in-out flex items-center"
                 to={"/secret-dashboard"}
               >
                 <Lock className="inline-block mr-1" size={18} />
@@ -80,7 +80,7 @@ const Navbar = () => {
 
             {user ? (
               <button
-                className="bg-green-700 hover:bg-green-600 text-white py-2 px-4 rounded-md flex items-center transition duration-300 ease-in-out"
+                className="bg-red-500 hover:bg-red-400 text-white py-2 px-4 rounded-md flex items-center transition duration-300 ease-in-out"
                 onClick={logout}
               >
                 <LogOut size={18} />
@@ -90,14 +90,14 @@ const Navbar = () => {
               <>
                 <Link
                   to={"/signup"}
-                  className="bg-green-600 hover:bg-green-700 text-white py-2 px-4 rounded-md flex items-center transition duration-300 ease-in-out"
+                  className="bg-green-500 hover:bg-green-400 text-white py-2 px-4 rounded-md flex items-center transition duration-300 ease-in-out"
                 >
                   <UserPlus className="mr-2" size={18} />
                   Sign Up
                 </Link>
                 <Link
                   to={"/login"}
-                  className="bg-green-700 hover:bg-green-600 text-white py-2 px-4 rounded-md flex items-center transition duration-300 ease-in-out"
+                  className="bg-green-500 hover:bg-green-400 text-white py-2 px-4 rounded-md flex items-center transition duration-300 ease-in-out"
                 >
                   <LogIn className="mr-2" size={18} />
                   Login

@@ -29,7 +29,7 @@ const NewsletterForm = () => {
         />
         <button
           type="submit"
-          className="px-2 py-1 lg:px-4 lg:py-2 bg-green-600 text-white rounded-md hover:bg-green-700 focus:outline-none focus:ring-2 focus:ring-green-500"
+          className="px-2 py-1 lg:px-4 lg:py-2 bg-green-500 text-white rounded-md hover:bg-green-600 focus:outline-none focus:ring-2 focus:ring-green-500"
         >
           Subscribe
         </button>

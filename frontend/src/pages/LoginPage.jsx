@@ -85,7 +85,7 @@ const LoginPage = () => {
 
             <button
               type="submit"
-              className="w-full flex justify-center py-2 px-4 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-gray-800 hover:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-500 transition duration-150 ease-in-out disabled:opacity-50"
+              className="w-full flex justify-center py-2 px-4 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-green-500 hover:bg-green-600 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-500 transition duration-150 ease-in-out disabled:opacity-50"
               disabled={loading}
             >
               {loading ? (
@@ -105,11 +105,11 @@ const LoginPage = () => {
             </button>
           </form>
 
-          <p className="mt-8 text-center text-sm text-gray-600">
+          <p className="mt-8 text-center text-sm text-green-500">
             Not a member?{" "}
             <Link
               to="/signup"
-              className="font-medium text-gray-800 hover:text-gray-700"
+              className="font-medium text-green-500 hover:text-green-600"
             >
               Sign up now <ArrowRight className="inline h-4 w-4" />
             </Link>
