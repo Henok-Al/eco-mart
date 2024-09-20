@@ -70,6 +70,7 @@ function App() {
             element={user ? <PurchaseCancelPage /> : <Navigate to="/login" />}
           />
         </Routes>
+        <Footer />
       </div>
       <Toaster />
     </div>
