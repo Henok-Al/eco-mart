@@ -38,7 +38,7 @@ const userSchema = new mongoose.Schema(
     },
   },
   {
-    timestamps: true, //created and updated at
+    timestamps: true,
   }
 );
 
@@ -55,8 +55,6 @@ userSchema.pre("save", async function (next) {
   }
 });
 
-//abel 123456
-//1234567 => invalid credentials
 userSchema.methods.comparePassword = async function (password) {
   return bcrypt.compare(password, this.password);
 };
