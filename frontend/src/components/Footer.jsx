@@ -1,4 +1,3 @@
-import { ShoppingCart } from "lucide-react";
 import { BsInstagram, BsTwitterX } from "react-icons/bs";
 import NewsletterForm from "./NewsletterForm"; // Adjust the path accordingly
 import { FaFacebook } from "react-icons/fa";
