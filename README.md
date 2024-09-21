@@ -68,7 +68,3 @@ Welcome to **Eco-Mart**, a feature-rich e-commerce platform designed to provide 
 
 5. **Access the application:**
    Open your browser and navigate to `http://localhost:5173`.
-
-
-
-Thank you for choosing **Eco-Mart**! We hope you enjoy using our platform and find it valuable for your e-commerce needs. Happy shopping! 🛍️
