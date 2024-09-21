@@ -68,3 +68,10 @@ Welcome to **Eco-Mart**, a feature-rich e-commerce platform designed to provide 
 
 5. **Access the application:**
    Open your browser and navigate to `http://localhost:5173`.
+
+   ![image](https://github.com/user-attachments/assets/b617c99a-1bc6-4b9f-abda-36c907499c22)
+   ![image](https://github.com/user-attachments/assets/d522e321-65db-4bcc-8c56-8ed51be2a4e2)
+   ![image](https://github.com/user-attachments/assets/323a1a46-047c-45f7-8c55-d0c243eb1083)
+
+
+
