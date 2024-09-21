@@ -1,19 +1,21 @@
+import { useEffect } from "react";
 import { Route, Routes, Navigate } from "react-router-dom";
+import { useCartStore } from "./store/useCartStore";
+import { useUserStore } from "./store/useUserStore";
+import { Toaster } from "react-hot-toast";
+
 import HomePage from "./pages/HomePage";
 import LoginPage from "./pages/LoginPage";
 import Navbar from "./components/Navbar";
-import { Toaster } from "react-hot-toast";
-import { useUserStore } from "./store/useUserStore";
-import { useEffect } from "react";
 import LoadingSpinner from "./components/LoadingSpinner";
 import AdminPage from "./pages/AdminPage";
 import CategoryPage from "./pages/CategoryPage";
-import { useCartStore } from "./store/useCartStore";
+
 import CartPage from "./pages/CartPage";
 import PurchaseSuccessPage from "./pages/PurchaseSuccessPage";
 import PurchaseCancelPage from "./pages/PurchaseCancelPage";
 import Footer from "./components/Footer";
-import SignUpPage from "./pages/SignUpPage"; // Corrected import path
+import SignUpPage from "./pages/SignUpPage";
 
 function App() {
   const { user, checkAuth, checkingAuth } = useUserStore();
