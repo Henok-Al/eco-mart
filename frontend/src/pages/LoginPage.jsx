@@ -105,7 +105,7 @@ const LoginPage = () => {
             </button>
           </form>
 
-          <p className="mt-8 text-center text-sm text-green-500">
+          <p className="mt-8 text-center text-sm text-gray-500">
             Not a member?{" "}
             <Link
               to="/signup"

@@ -25,11 +25,11 @@ const NewsletterForm = () => {
           value={email}
           onChange={(e) => setEmail(e.target.value)}
           required
-          className="px-2 py-1 lg:px-4 lg:py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-green-500"
+          className="px-3 py-2 lg:px-4 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-green-500"
         />
         <button
           type="submit"
-          className="px-2 py-1 lg:px-4 lg:py-2 bg-green-500 text-white rounded-md hover:bg-green-600 focus:outline-none focus:ring-2 focus:ring-green-500"
+          className="px-3 py-2 lg:px-4  bg-green-500 text-white rounded-md hover:bg-green-600 focus:outline-none focus:ring-2 focus:ring-green-500"
         >
           Subscribe
         </button>
