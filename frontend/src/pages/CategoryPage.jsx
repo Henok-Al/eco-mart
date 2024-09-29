@@ -1,49 +1,56 @@
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
-import { motion } from "framer-motion";
 import { useProductStore } from "../store/useProductStore";
-import ProductCard from "../components/ProductCard";
+import Search from "../components/Search";
 
 const CategoryPage = () => {
-  const { fetchProductsByCategory, products } = useProductStore();
-
   const { category } = useParams();
+  const { fetchProductsByCategory, products } = useProductStore();
+  const [filteredProducts, setFilteredProducts] = useState([]);
 
   useEffect(() => {
     fetchProductsByCategory(category);
-  }, [fetchProductsByCategory, category]);
+  }, [category, fetchProductsByCategory]);
 
-  console.log("products:", products);
+  useEffect(() => {
+    setFilteredProducts(products);
+  }, [products]);
+
+  const handleSearch = (searchTerm) => {
+    const filtered = products.filter((product) =>
+      product.name.toLowerCase().includes(searchTerm.toLowerCase())
+    );
+    setFilteredProducts(filtered);
+  };
+
   return (
-    <div className="min-h-screen bg-gray-100">
-      <div className="relative z-10 max-w-screen-xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
-        <motion.h1
-          className="text-center text-4xl sm:text-5xl font-bold text-gray-800 mb-8"
-          initial={{ opacity: 0, y: -20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8 }}
-        >
-          {category.charAt(0).toUpperCase() + category.slice(1)}
-        </motion.h1>
-
-        <motion.div
-          className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 justify-items-center"
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.2 }}
-        >
-          {products?.length === 0 && (
-            <h2 className="text-3xl font-semibold text-gray-600 text-center col-span-full">
-              No products found
-            </h2>
-          )}
-
-          {products?.map((product) => (
-            <ProductCard key={product._id} product={product} />
-          ))}
-        </motion.div>
+    <div className="container mx-auto px-4 py-8">
+      <h1 className="text-4xl font-bold text-center mb-8 capitalize">
+        {category}
+      </h1>
+      <Search onSearch={handleSearch} />
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+        {filteredProducts.map((product) => (
+          <div
+            key={product._id}
+            className="bg-white shadow-lg rounded-lg overflow-hidden"
+          >
+            <img
+              src={product.image}
+              alt={product.name}
+              className="w-full h-64 object-cover"
+            />
+            <div className="p-4">
+              <h3 className="text-xl font-semibold text-gray-800">
+                {product.name}
+              </h3>
+              <p className="text-gray-600">${product.price.toFixed(2)}</p>
+            </div>
+          </div>
+        ))}
       </div>
     </div>
   );
 };
+
 export default CategoryPage;
