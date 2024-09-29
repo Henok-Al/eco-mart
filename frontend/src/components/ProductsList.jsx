@@ -1,12 +1,26 @@
+// components/ProductsList.jsx
 import { useState, useEffect } from "react";
 import { motion } from "framer-motion";
 import { Trash, Star } from "lucide-react";
 import { useProductStore } from "../store/useProductStore";
 import Search from "./Search";
+import Pagination from "./Pagination";
 
 const ProductsList = () => {
-  const { deleteProduct, toggleFeaturedProduct, products } = useProductStore();
+  const {
+    fetchAllProducts,
+    deleteProduct,
+    toggleFeaturedProduct,
+    products,
+    totalPages,
+    currentPage,
+    loading,
+  } = useProductStore();
   const [filteredProducts, setFilteredProducts] = useState(products);
+
+  useEffect(() => {
+    fetchAllProducts();
+  }, [fetchAllProducts]);
 
   useEffect(() => {
     setFilteredProducts(products);
@@ -17,6 +31,10 @@ const ProductsList = () => {
       product.name.toLowerCase().includes(searchTerm.toLowerCase())
     );
     setFilteredProducts(filtered);
+  };
+
+  const handlePageChange = (page) => {
+    fetchAllProducts(page);
   };
 
   return (
@@ -113,6 +131,11 @@ const ProductsList = () => {
           ))}
         </tbody>
       </table>
+      <Pagination
+        currentPage={currentPage}
+        totalPages={totalPages}
+        onPageChange={handlePageChange}
+      />
     </motion.div>
   );
 };

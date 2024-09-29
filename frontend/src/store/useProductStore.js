@@ -4,7 +4,13 @@ import axios from "../lib/axios";
 
 export const useProductStore = create((set) => ({
   products: [],
+  totalPages: 0,
+  currentPage: 1,
   loading: false,
+
+  // setProducts: (products) => set({ products }),
+  setTotalPages: (totalPages) => set({ totalPages }),
+  setCurrentPage: (currentPage) => set({ currentPage }),
 
   setProducts: (products) => set({ products }),
   createProduct: async (productData) => {
@@ -20,21 +26,35 @@ export const useProductStore = create((set) => ({
       set({ loading: false });
     }
   },
-  fetchAllProducts: async () => {
+
+  fetchAllProducts: async (page = 1, limit = 10) => {
     set({ loading: true });
     try {
-      const response = await axios.get("/products");
-      set({ products: response.data.products, loading: false });
+      const response = await axios.get(`/products?page=${page}&limit=${limit}`);
+      set({
+        products: response.data.products,
+        totalPages: response.data.totalPages,
+        currentPage: response.data.currentPage,
+        loading: false,
+      });
     } catch (error) {
       set({ error: "Failed to fetch products", loading: false });
       toast.error(error.response.data.error || "Failed to fetch products");
     }
   },
-  fetchProductsByCategory: async (category) => {
+
+  fetchProductsByCategory: async (category, page = 1, limit = 10) => {
     set({ loading: true });
     try {
-      const response = await axios.get(`/products/category/${category}`);
-      set({ products: response.data.products, loading: false });
+      const response = await axios.get(
+        `/products/category/${category}?page=${page}&limit=${limit}`
+      );
+      set({
+        products: response.data.products,
+        totalPages: response.data.totalPages,
+        currentPage: response.data.currentPage,
+        loading: false,
+      });
     } catch (error) {
       set({ error: "Failed to fetch products", loading: false });
       toast.error(error.response.data.error || "Failed to fetch products");
